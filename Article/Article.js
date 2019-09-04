@@ -133,7 +133,10 @@ function generateArticle({title, date, firstParagraph, secondParagraph, thirdPar
 
   const button = document.createElement('span');
   button.classList.add('expandButton');
-  button.addEventListener('click', () => this.parent.classList.toggle('article-open'));
+  button.textContent = 'Toggle';
+  button.addEventListener('click', function() {
+    this.parentElement.classList.toggle('article-open');
+  });
 
   article.appendChild(h2);
   article.appendChild(pDate);
@@ -145,3 +148,17 @@ function generateArticle({title, date, firstParagraph, secondParagraph, thirdPar
   return article;
 }
 
+data.push({
+  title: 'Lambda School Web Development Course',
+  date: 'Sep 9th, 2019',
+  firstParagraph: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nisi culpa repellat quo consectetur adipisci explicabo harum, nulla fuga quos voluptas expedita iusto neque ipsam maxime totam, reprehenderit architecto iure?`,
+  secondParagraph: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, vitae eius deleniti suscipit sequi libero, at cum laborum praesentium saepe maiores! Odio suscipit atque quidem itaque tempora cumque nulla beatae?`,
+  thirdParagraph: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum quasi explicabo voluptates perspiciatis voluptatem veritatis, quod at, ipsam optio illum, vel tenetur doloribus ipsa eos velit necessitatibus cupiditate porro. Incidunt.`
+});
+
+const articlesContainer = document.querySelector('.articles');
+const articles = data.map(article => {
+  const newArticle = generateArticle(article);
+  articlesContainer.appendChild(newArticle);
+  return newArticle;
+});
