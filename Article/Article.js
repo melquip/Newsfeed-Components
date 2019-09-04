@@ -134,10 +134,10 @@ function generateArticle({title, date, firstParagraph, secondParagraph, thirdPar
   const p3 = document.createElement('p');
   p3.textContent = thirdParagraph;
 
-  const button = document.createElement('span');
-  button.classList.add('expandButton');
-  button.textContent = 'Click to Expand';
-  button.addEventListener('click', function() {
+  const expandButton = document.createElement('span');
+  expandButton.classList.add('expandButton');
+  expandButton.textContent = articleBtnOpeningText;
+  expandButton.addEventListener('click', function() {
     this.parentElement.classList.toggle('article-open');
     if(this.parentElement.className.indexOf('article-open') > -1) {
       this.textContent = articleBtnClosingText;
@@ -146,12 +146,20 @@ function generateArticle({title, date, firstParagraph, secondParagraph, thirdPar
     }
   });
 
+  const closeButton = document.createElement('span');
+  closeButton.classList.add('close');
+  closeButton.textContent = 'Close';
+  closeButton.addEventListener('click', function() {
+    this.parentElement.classList.add('hidden');
+  });
+
   article.appendChild(h2);
   article.appendChild(pDate);
   article.appendChild(p1);
   article.appendChild(p2);
   article.appendChild(p3);
-  article.appendChild(button);
+  article.appendChild(expandButton);
+  article.appendChild(closeButton);
 
   return article;
 }
