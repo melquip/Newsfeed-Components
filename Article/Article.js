@@ -113,6 +113,9 @@ const data = [
 
 */
 
+const articleBtnOpeningText = 'Click to Expand';
+const articleBtnClosingText = 'Click to Close';
+
 function generateArticle({title, date, firstParagraph, secondParagraph, thirdParagraph}) {
   const article = document.createElement('div');
   article.classList.add('article');
@@ -133,9 +136,14 @@ function generateArticle({title, date, firstParagraph, secondParagraph, thirdPar
 
   const button = document.createElement('span');
   button.classList.add('expandButton');
-  button.textContent = 'Toggle';
+  button.textContent = 'Click to Expand';
   button.addEventListener('click', function() {
     this.parentElement.classList.toggle('article-open');
+    if(this.parentElement.className.indexOf('article-open') > -1) {
+      this.textContent = articleBtnClosingText;
+    } else {
+      this.textContent = articleBtnOpeningText;
+    }
   });
 
   article.appendChild(h2);
