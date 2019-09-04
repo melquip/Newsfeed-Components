@@ -88,6 +88,25 @@
   transform: translate(-50%);
   background-color: white;
 }
+.container {
+  margin-top: 5%;
+}
+.container h1,
+.container form {
+  margin: 20px 10%;
+}
+.container label,
+.container input,
+.container textarea,
+.container button {
+  display: block;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  width: 100%;
+}
+.container button {
+  margin-top: 2%;
+}
 .menu-button {
   position: absolute;
   left: 20px;

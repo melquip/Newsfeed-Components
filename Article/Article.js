@@ -178,3 +178,21 @@ const articles = data.map(article => {
   articlesContainer.appendChild(newArticle);
   return newArticle;
 });
+
+createNewArticle.addEventListener('submit', function(e) {
+  e.preventDefault();
+  let formData = serializeObject(this);
+  articlesContainer.appendChild(generateArticle(formData));
+  this.reset();
+  return false;
+});
+
+const serializeObject = function(form) {
+	let serializedOutput = {};
+	for (let i = 0; i < form.elements.length; i++) {
+		let field = form.elements[i];
+    if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
+    serializedOutput[field.name] = field.value;
+	}
+	return serializedOutput;
+};
