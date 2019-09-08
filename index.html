@@ -13,6 +13,23 @@
       <h1>Lambda School Newsfeed</h1>
     </div>
     <div class="articles"></div>
+    
+    <div class="container">
+      <h1>Create a new article</h1>
+      <form id="createNewArticle" action="index.html" method="POST">
+        <label for="title">Title:</label>
+        <input name="title" id="title" type="text" required>
+        <label for="date">Date:</label>
+        <input name="date" id="date" type="text" required>
+        <label for="firstParagraph">FirstParagraph:</label>
+        <textarea name="firstParagraph" id="firstParagraph" required></textarea>
+        <label for="secondParagraph">SecondParagraph:</label>
+        <textarea name="secondParagraph" id="secondParagraph" required></textarea>
+        <label for="thirdParagraph">ThirdParagraph:</label>
+        <textarea name="thirdParagraph" id="thirdParagraph" required></textarea>
+        <button>Create new article</button>
+      </form>
+    </div>
   </body>
 </html>
 <!-- Do not add anything to the HTML -->
